@@ -13,10 +13,10 @@ orientação a objetos no _Javascript_ assim como as linguagens de back-end _Jav
 e *C#*.
 
 O _Typescript_ possui um transpilador que transforma o seu código __typescript__
-em __javascript__, mas você deve estar se perguntando o porque usar OO em _Javascript_,
+em __javascript__, mas você deve estar se perguntando o porque usar POO em _Javascript_,
 bom, se você está com essa duvida é porque tem dificuldade com a orientação a
 objetos. Se você trabalha como dev sabe que o código _Javascript_ ao longo do
-tempo acaba virando um monstro, com a OO a ideia é reduzir ao máximo esse problema.
+tempo acaba virando um monstro, com a POO a ideia é reduzir ao máximo esse problema.
 
 ## Existe algum pré-requisito?
 Pelo que venho estudando até o momento acho interessante que você possua um certo conhecimento sobre _Javascript_, não precisa ser um ninja, mas é legar ter noção do _Javascript_ (quando eu digo _javascript_ é _javascript_ __puro__ :thumbsup:). Outro conhecimento importante para utilizar o _Typescript_ é possuir os conceitos de __orientação a objetos__ bem sólidos.
@@ -105,4 +105,51 @@ enum Direcao {
 }
 
 console.log(Direcao.esquerda) // resultado = 3
+```
+### Funções
+Para criar funções no _typescript_ não é muito diferente do que em outras linguagens veja um exemplo abaixo:
+
+``` typescript
+nomeDaFuncao(param1 : tipo, param2: tipo, ...) : tipoDeRetorno {
+  // seu código
+}
+
+// um exemplo real de uma função que soma dois números
+soma (numero1: number, numero2: number) : number {
+  return numero1 + numero2;
+}
+```
+
+## Classes
+Classes são tipos especiais de dados que podemos criar, por exemplo:
+
+``` typescript
+class Carro {
+    cor: string;
+    ano: number;
+}
+
+let fusca = new Carro(); // agora podemos usar um novo tipo de variável
+```
+
+## Interfaces
+Interfaces são "classes" onde é possível definir quais os comportamentos devem ser implementados em uma classe, ou seja, definimos que a classe deve ter um determinado comportamento, mas não definimos como deve ser executado esse comportamento. Essas definições de como deve ser executada fica no momento da implementação da classe.
+
+``` typescript
+interface IAnimal {
+    mover():void; // Toda classe que implementar a interface deve possuir o método mover();
+}
+
+class Cachorro implements IAnimal {
+    mover() : void {
+      // a classe que implementa a interface é que escrevemos o comportamento.
+      console.log("O cachorro está se movendo");
+    }
+}
+
+class Gato implements IAnimal {
+    mover() : void {
+      console.log("O gato está se movendo")
+    }
+}
 ```
