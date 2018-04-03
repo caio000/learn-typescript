@@ -153,3 +153,22 @@ class Gato implements IAnimal {
     }
 }
 ```
+
+Como citado anteriormente, com a interface podemos definir os comportamentos da classe ao implementar nossa interface. Com o _Typescript_ podemos definir também atributos seja ele obrigatório ou não, por exemplo:
+
+```typescript
+interface IAnimal {
+    nome: string; // atributo obrigatório
+    idade?: number; // atributo não obrigatório
+}
+```
+
+Detalhando o exemplo acima, toda classe que implementa a nossa interface _IAnimal_ deve possuir (obrigatório) o atributo __nome__, mas não é necessário possuir o atributo __idade__.
+
+Além de poder criar parâmetros não obrigatórios é possível criar "constantes" onde atribuímos o valor na instancia do objeto e esse valor não poderá ser alterado. Para criar esse atributo utiliza-se a palavra chave __readonly__.
+
+```typescript
+  interface NomeDaInterface {
+      readonly nomeDaVariavel : tipo;
+  }
+```
