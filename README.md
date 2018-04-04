@@ -121,15 +121,48 @@ soma (numero1: number, numero2: number) : number {
 ```
 
 ## Classes
-Classes são tipos especiais de dados que podemos criar, por exemplo:
+Classes são tipos especiais de dados que podemos criar. Como o _typescript_ utiliza os conceitos de __POO__, podemos utilizar __herança__, __polimorfismo__ e __encapsulamento__. Abaixo um pequeno exemplo:
 
 ``` typescript
-class Carro {
-    cor: string;
-    ano: number;
+export abstract class Veiculo {
+    private readonly _id: number;
+
+    constructor(id: number) {
+      this._id = id;
+    }
+
+    get id () : number {
+      return this._id;
+    }
+
+    public abstract mover() : void;
 }
 
-let fusca = new Carro(); // agora podemos usar um novo tipo de variável
+export class Carro extends Veiculo {
+
+  private _cor: string;
+  private _ano: number;
+
+  constructor(id: number, cor:string, ano: number) {
+    super(id);
+    this._ano = ano;
+    this._cor = cor;
+  }
+
+  public toString = function () : string {
+    return '['+this._id+','+this._cor+','+this._ano+']';
+  }
+
+  mover() : void {
+    console.log('O carro está se movendo');
+  }
+
+}
+
+let carro = new Carro(10,'vermelho',2015);
+console.log(carro.toString());
+
+carro.mover();
 ```
 
 ## Interfaces
