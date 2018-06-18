@@ -205,3 +205,21 @@ Além de poder criar parâmetros não obrigatórios é possível criar "constant
       readonly nomeDaVariavel : tipo;
   }
 ```
+
+## Tipos Genéricos
+No TypeScript podemos utilizar tipos genéricos na assinaturas de classes e métodos. Mais conhecidos como _Generic Type_, os tipos genéricos são utilizados em situações em que não sabemos o tipo de dado que a função ira receber, mas mesmo assim queremos utilizar a função criada. Abaixo o exemplo de uma função utilizando tipos genéricos.
+
+```typescript
+public reverseList = function<T>(list:Array<T>) : Array<T> {
+
+  let reversedList: Array<T> = [];
+
+  for (let i = list.length - 1; i >= 0; i--) {
+    reversedList.push(list[i]);
+  }
+
+  return reversedList;
+}
+```
+
+Para utilizar os tipos genéricos é utilizado a uma letra em maiúsculo (nesse caso a letra T) dentro do sinais de maior e menor ( __<__ __>__). Em nosso exemplo, estamos falando que a função vai receber um parâmetro chamado _list_ que é um array de tipo genérico, ou seja, vamos receber uma lista em que não sabemos o tipo dessa lista, por exemplo, podemos receber uma lista de valores do tipo _number_, _string_ ou até mesmo uma lista de objetos. No retorno utilizamos o tipo genérico, pois assim podemos garantir que a lista retornada será do mesmo tipo da lista que foi passado como parâmetro.
