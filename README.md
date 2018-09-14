@@ -30,6 +30,30 @@ seguinte comando:
 npm install -g typescript
 ```
 
+## Configuração
+O passo seguinte é criar o arquivo de configuração do nosso projeto. Para criar o arquivo de configuração utilize o seguinte comando no terminal:
+
+```
+tsc --init
+```
+
+Com esse comando será gerado um arquivo __tsconfig.json__ com varias opções de configurações disponíveis para o nosso projeto. Para saber mais sobre essas configurações acesse a  [documentação](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) do _Typescript_. A seguir o meu arquivo __tsconfig.json__ com as configurações que estou utilizando para esse projeto, apenas um adendo para a opção _outDir_ onde estou especificando o diretório onde será gerado os arquivos __JS__.
+
+```json
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "strict": true,
+  }
+}
+
+```
+
 ## Variáveis
 Para a criação de variáveis utilizamos a seguinte sintaxe:
 
