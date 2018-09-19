@@ -1,0 +1,13 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "system",
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "./dist",
+    "outFile": "./dist/bundle.js",
+    "removeComments": true,
+    "strict": true,
+  }
+}

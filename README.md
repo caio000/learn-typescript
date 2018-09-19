@@ -247,3 +247,36 @@ public reverseList = function<T>(list:Array<T>) : Array<T> {
 ```
 
 Para utilizar os tipos genéricos é utilizado a uma letra em maiúsculo (nesse caso a letra T) dentro do sinais de maior e menor ( __<__ __>__). Em nosso exemplo, estamos falando que a função vai receber um parâmetro chamado _list_ que é um array de tipo genérico, ou seja, vamos receber uma lista em que não sabemos o tipo dessa lista, por exemplo, podemos receber uma lista de valores do tipo _number_, _string_ ou até mesmo uma lista de objetos. No retorno utilizamos o tipo genérico, pois assim podemos garantir que a lista retornada será do mesmo tipo da lista que foi passado como parâmetro.
+
+## Eventos
+Como estamos falando de _javascript_ não podemos esquecer dos famosos _eventos_ que utilizamos para colocar mais "frescuras" em nossos projetos. Para trabalharmos com eventos em _typescript_ não é diferente da forma em que criamos em _javascript_.
+
+```typescript
+class MyEvent {
+
+  protected element: HTMLElement;
+
+  constructor (elementId: string, event: string) {
+    this.element = <HTMLElement> document.getElementById(elementId);
+    this.element.addEventListener(event, this.run);
+  }
+
+  run() : void {
+    // do something
+  }
+}
+```
+
+No exemplo acima temos uma simples classe que vai nos ajudar a entender como podemos trabalhar com eventos em _typescript_, primeiro temos um atributo _element_ que é o elemento que vai receber o evento que estamos criando, em seguida temos o construtor que recebe o _id_ do elemento e o nome do evento que vamos utilizar e a função _run_ que vai executar as ações que vamos criar.
+
+Para quem já conhece _javascript_ sabe o que estamos fazendo dentro do construtor, mas para quem não conhece vou explicar de forma simples. Primeiro vamos pegar o elemento que vai receber o nosso evento.
+
+```typescript
+  this.element = <HTMLElement> document.getElementById(elementId);
+```
+
+Agora que já temos o nosso elemento vamos atribuir o evento e a função de deve ser executada quando o evento for disparado que nesse caso e a função _run_, enão todos os comandos que escrevemos dentro dessa função é o que será executado quando o evento for disparado.
+
+```typescript
+  this.element.addEventListener(event, this.run);
+```
