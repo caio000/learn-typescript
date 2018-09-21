@@ -280,3 +280,39 @@ Agora que já temos o nosso elemento vamos atribuir o evento e a função de dev
 ```typescript
   this.element.addEventListener(event, this.run);
 ```
+
+## Asynchronous JavaScript and XML
+Asynchronous JavaScript and XML ou mais conhecido como AJAX é uma técnica que nos permite criar aplicações mais interativas, com ele podemos fazer requisições ao servidor web para buscar e enviar informações.
+
+Abaixo um exemplo de uma classe criada para fazermos as requisições _ajax_. Primeiro temos o atributo __READY_STATUS_CODE__ e atribuimos o valor 4 (quatro), ou seja, os dados de resposta da requisição estão prontos para nossa aplicação.
+
+Temos a função __isCompleted__ que verifica se a nossa requisição está pronta para ser utilizada. Por último a principal função __httpCatch__ que recebe a _URL_ a qual vamos acessar para buscar ou enviar informações para o servidor e uma função _callback_ que será executada ao final de requisição. Para ver o arquivo original [clique aqui](js/Ajax.ts).
+
+```typescript
+class Ajax {
+    private READY_STATUS_CODE : number;
+
+    constructor() {
+      this.READY_STATUS_CODE = 4;
+    }
+
+    private isCompleted (req: XMLHttpRequest) {
+      return req.readyState === this.READY_STATUS_CODE;
+    }
+
+    public httpCatch(url: string, callback: (status: number, response: string) => any) : void {
+      let req = new XMLHttpRequest();
+
+      req.onreadystatechange = () => {
+        let finished = this.isCompleted(req);
+        if (finished) {
+          callback(req.status, req.responseText);
+        }
+      }
+
+      req.open("GET", url, true);
+      req.send();
+    }
+
+}
+```
