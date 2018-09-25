@@ -24,16 +24,19 @@ class Ajax {
       req.send();
     }
 
+    public httpPost(url: string, data: Object, callback: (status: number, response: string) => any) : void {
+      let req = new XMLHttpRequest();
+
+      req.onreadystatechange = () => {
+        let finished = this.isCompleted(req);
+        if (finished) {
+          callback(req.status, req.responseText);
+        }
+      }
+
+      req.open("POST", url, true);
+      req.setRequestHeader("content-type", 'application/json');
+      req.send(JSON.stringify(data));
+    }
+
 }
-
-
-const ajax = new Ajax();
-ajax.httpCatch("https://httpbin.org/get", (status, response) => {
-  console.log(`Status: ${status}`);
-  let pre = document.createElement('pre');
-  let element = <HTMLElement> document.getElementsByTagName('main')[0];
-  let content = document.createTextNode(response);
-
-  pre.appendChild(content);
-  element.appendChild(pre);
-});
