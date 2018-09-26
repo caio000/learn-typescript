@@ -316,3 +316,27 @@ class Ajax {
 
 }
 ```
+
+## Exceções
+Em _javascript_ é possível lançar __exceptions__ (exceções), ou como é chamado na própria linguagem __Error__. Uma das boas praticas é a criação das nossas próprias classes de erros, por exemplo:
+
+```typescript
+class StringNotValidError implements Error {
+  name: string = 'StringNotValidError';
+
+  constructor (public message: string) {
+      console.log(`Error: ${message}`);
+  }
+}
+```
+
+No exemplo acima foi criada a classe __StringNotValidError__ e que implementa a interface __Error__, e com a implementação dessa interface devemos criar os atributos _name_ e _message_. O atributo _name_ é definido o nome da classe criada e _message_ a mensagem que queremos retornar no momento do erro.
+
+Um exemplo para lançar nossa classe de erro.
+```TypeScript
+let num1 = 'teste';
+
+if (isNaN(num1)) {
+  throw new NotANumberError(`${ num1 } is not a number`);
+}
+```
