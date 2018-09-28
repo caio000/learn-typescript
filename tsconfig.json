@@ -2,12 +2,21 @@
   "compileOnSave": true,
   "compilerOptions": {
     "target": "es2018",
-    "module": "system",
+    "module": "CommonJS",
     "allowJs": true,
     "checkJs": true,
     "outDir": "./dist",
-    "outFile": "./dist/bundle.js",
+    /* "outFile": "./dist/bundle.js", */
     "removeComments": true,
     "strict": true,
-  }
+    "inlineSourceMap": false,
+    "sourceMap": true,
+    "sourceRoot": "./js",
+  },
+  "exclude": [
+      "node_modules",
+      "**/*.spec.ts",
+      "test",
+      "dist"
+  ]
 }
