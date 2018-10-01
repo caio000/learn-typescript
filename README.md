@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/caio000/learn-typescript.svg?branch=master)](https://travis-ci.com/caio000/learn-typescript)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+
 # Estudando Typescript
 ![TypeScript](https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png)
 
