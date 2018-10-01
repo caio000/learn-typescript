@@ -148,6 +148,28 @@ soma (numero1: number, numero2: number) : number {
 }
 ```
 
+#### Callback
+Segundo o glossário da [Mozilla](https://developer.mozilla.org/pt-BR/docs/Glossario/Callback_function) as funções _callback_ são funções que são passadas como parâmetros de outras funções, por exemplo.
+
+```typescript
+class Calculator {
+  SUM = (num1: number, num2: number) => num1 + num2;
+  MULTIPLY = (num1: number, num2: number) => num1 * num2;
+
+  calculate(num1: number, num2: number, callback: (num1: number, num2: number) => number) : number {
+    return callback(num1, num2);
+  }
+}
+```
+
+No exemplo acima foi criado uma classe _Calculator_ (Calculadora) com uma função _calculate_ (calcular) que recebe como parâmetros dois números e uma função que representa a operação que será executada pela calculadora.
+
+```typescript
+const calculator = new app.Calculator();
+const result = calculator.calculate(2, 2, calculator.SUM);
+console.log(result); // resultado: 4
+```
+
 ## Classes
 Classes são tipos especiais de dados que podemos criar. Como o _typescript_ utiliza os conceitos de __POO__, podemos utilizar __herança__, __polimorfismo__ e __encapsulamento__. Abaixo um pequeno exemplo:
 
