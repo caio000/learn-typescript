@@ -1,8 +1,12 @@
-var assert = require('assert');
+var assert = require('chai').assert;
 const app = require('../dist/Calculator');
 
 
 describe('Calculator', function() {
+  it('The instance of calculator is a calculator type', function () {
+    const calculator = new app.Calculator();
+    assert.instanceOf(calculator, app.Calculator, 'calculator is not a instance of Calculator');
+  });
   describe('Sum', function() {
     it('The sum of 2 plus 2 equal 4', function() {
       let calculator = new app.Calculator();
@@ -29,12 +33,22 @@ describe('Calculator', function() {
     it('The multiplication of  5 by 5 it\'s equals 25', function() {
       let calculator = new app.Calculator();
       const result = calculator.calculate(5, 5, calculator.MULTIPLY);
-      assert.equal(result, 25);
+      assert.strictEqual(result, 25);
     });
     it('The multiplication of -4 by 10 it\'s equals -40', function() {
       let calculator = new app.Calculator();
       const result = calculator.calculate(-4, 10, calculator.MULTIPLY);
-      assert.equal(result, -40);
+      assert.strictEqual(result, -40);
+    });
+    it('The multiplication of 2 by -10 it\'s equals -20', function() {
+      let calculator = new app.Calculator();
+      const result = calculator.calculate(2, -10, calculator.MULTIPLY);
+      assert.strictEqual(result, -20);
+    });
+    it('The multiplication of -5 by -7 it\'s equals 35', function() {
+      let calculator = new app.Calculator();
+      const result = calculator.calculate(-5, -7, calculator.MULTIPLY);
+      assert.strictEqual(result, 35);
     });
   });
 });
