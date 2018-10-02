@@ -12,6 +12,8 @@
     "inlineSourceMap": false,
     "sourceMap": true,
     "sourceRoot": "./js",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "exclude": [
       "node_modules",
