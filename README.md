@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/753acfd70af54e1c844b4c4cfa1620ed)](https://app.codacy.com/app/caio000/learn-typescript?utm_source=github.com&utm_medium=referral&utm_content=caio000/learn-typescript&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/caio000/learn-typescript.svg?branch=master)](https://travis-ci.com/caio000/learn-typescript)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
